@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import RecommendationItem from "./RecommendationItem";
 import {ProductContext} from '../Provider'
+import {Link} from 'react-router-dom'
 
 const Recommendation = (props) => {
   const {state}=useContext(ProductContext)
@@ -17,7 +18,7 @@ const Recommendation = (props) => {
       <div className="row">
         {state.products.slice(0, itemsToShow).map((item, index) => (
           <div key={index}>
-            <RecommendationItem title={item.title} content={item.content} />
+            <RecommendationItem item={item} />
           </div>
         ))}
       </div>
