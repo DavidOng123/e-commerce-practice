@@ -1,6 +1,7 @@
 import uuid from 'react-uuid';
 const defaultState = {
-  products: [{ id: '123',title: "David", content: 18 }, { id:'234',title: "Alex", content: 10 }],
+  products: [],
+  favorite:[]
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -9,6 +10,11 @@ export default (state = defaultState, action) => {
                 ...state,
                 products: [...state.products, {id:uuid(),...action.product}], // Add the new product to the products array
             };
+            case 'ADD_FAVORITE':
+                return {
+                    ...state,
+                    favorite: [...state.favorite, action.favorite], // Add the new product to the products array
+                };
               
         default:
             return state;

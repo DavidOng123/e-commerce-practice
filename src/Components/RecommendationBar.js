@@ -1,9 +1,9 @@
 import RecommendationBarItem from "./RecommendationBarItem"
 export default (props) => (
     <div>
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <a class="brand-logo center ">{props.title}</a>
+        <nav className="nav-extended">
+            <div className="nav-wrapper">
+                <a className="brand-logo center ">{props.title}</a>
             </div>
             {props.barItem && props.barItem}
         </nav>

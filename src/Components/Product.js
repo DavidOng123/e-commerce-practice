@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { ProductContext } from "../Provider"
 import RecommendationItem from "./RecommendationItem"
-import {Link} from 'react-router-dom'
 
 export default ()=>{
     const {state, dispatch}=useContext(ProductContext)
