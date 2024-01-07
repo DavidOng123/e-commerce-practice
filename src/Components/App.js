@@ -1,23 +1,28 @@
-import React, { useReducer, useEffect } from "react";
+import React , {useEffect, useReducer, useContext } from "react";
 import Carousel from "./Carousel";
 import Recommendation from "./Recommendation";
 import RecommendationBar from "./RecommendationBar";
 import RecommendationBarItem from "./RecommendationBarItem";
-import ProductReducer, { defaultState } from "../Reducer/Product";
 import './style.css';
+import { ProductContext } from "../Provider";
 
 const App = () => {
-  // const [state, dispatch] = useReducer(ProductReducer, defaultState);
-  // useEffect(()=>{
-  //   console.log(state)
-  // },[state]);
+  const { state, dispatch } = useContext(ProductContext);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
+
+  const addProduct = () => {
+    dispatch({ type: "ADD_PRODUCT", product: { title: "Test", content: 23 } });
+  };
 
   return (
     <div className="App">
-      {/* <button onClick={()=>dispatch({type:"ADD_PRODUCT", product:{name:"Test",age:23}})}>test</button> */}
+      <button onClick={()=>addProduct()}>test</button>
       <Carousel />
       <RecommendationBar title={'Recommendation'} />
-      <Recommendation />
+      <Recommendation/>
       <RecommendationBar title={'Browse Collections'} barItem={<RecommendationBarItem />} />
       <Recommendation flag={true}/>
     </div>
